@@ -1,0 +1,6 @@
+Place ici tes 2 à 4 captures d'écran (après `ng serve`) :
+  liste.png    -> page /events
+  filtre.png   -> liste filtrée par catégorie
+  details.png  -> page /events/1
+  about.png    -> page /about (ou la page 404)
+Elles sont déjà référencées dans le README.md.
