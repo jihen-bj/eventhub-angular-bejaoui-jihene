@@ -1,0 +1,36 @@
+<article class="card" [class.favorite]="isFavorite()">
+  <img class="card-img" [src]="event().imageUrl" [alt]="event().title" />
+
+  <div class="card-body">
+    <span class="badge">{{ event().category | uppercase }}</span>
+    <h3 class="card-title">{{ event().title }}</h3>
+
+    <p class="meta">📅 {{ event().date | date: 'dd MMMM yyyy' }}</p>
+    <p class="meta">📍 {{ event().place }}</p>
+
+    <p class="price">
+      @if (event().price === 0) {
+        Gratuit
+      } @else {
+        {{ event().price | currency: 'TND' : 'code' : '1.2-2' }}
+      }
+    </p>
+
+    <div class="actions">
+      <a class="btn" [routerLink]="['/events', event().id]">Voir les détails</a>
+
+      <button
+        type="button"
+        class="fav-btn"
+        [class.active]="isFavorite()"
+        (click)="onToggleFavorite()"
+      >
+        @if (isFavorite()) {
+          ★ Retirer des favoris
+        } @else {
+          ☆ Ajouter aux favoris
+        }
+      </button>
+    </div>
+  </div>
+</article>

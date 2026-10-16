@@ -1,0 +1,33 @@
+@if (event(); as ev) {
+  <article class="details">
+    <img class="cover" [src]="ev.imageUrl" [alt]="ev.title" />
+
+    <div class="content">
+      <span class="badge">{{ ev.category | uppercase }}</span>
+      <h1>{{ ev.title }}</h1>
+
+      <ul class="infos">
+        <li>📅 <strong>Date :</strong> {{ ev.date | date: 'EEEE dd MMMM yyyy' }}</li>
+        <li>📍 <strong>Lieu :</strong> {{ ev.place }}</li>
+        <li>
+          💰 <strong>Prix :</strong>
+          @if (ev.price === 0) {
+            Gratuit
+          } @else {
+            {{ ev.price | currency: 'TND' : 'code' : '1.2-2' }}
+          }
+        </li>
+      </ul>
+
+      <p class="description">{{ ev.description }}</p>
+
+      <a class="btn" routerLink="/events">← Retour à la liste</a>
+    </div>
+  </article>
+} @else {
+  <div class="not-found-box">
+    <h1>Événement introuvable</h1>
+    <p>Aucun événement ne correspond à l'identifiant « {{ id() }} ».</p>
+    <a class="btn" routerLink="/events">← Retour à la liste</a>
+  </div>
+}

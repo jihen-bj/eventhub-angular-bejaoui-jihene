@@ -1,0 +1,61 @@
+.header {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav a {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* Lien actif (routerLinkActive) */
+.nav a.active {
+  background: #fff;
+  color: #4f46e5;
+}
+
+@media (max-width: 520px) {
+  .header-inner {
+    justify-content: center;
+  }
+}
